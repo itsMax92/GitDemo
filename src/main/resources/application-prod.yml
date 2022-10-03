@@ -1,0 +1,39 @@
+
+#############FOLLOWING NAMING CONVENTION###################
+#####The topic will be created for the Asia POC
+#context: "dev"
+#region: "asia"
+#lob: "all"
+projects:
+  - name: "policy.operational-data-hub"
+    topics:
+      - dataType: "0"
+        name: "cdc"
+        plan: "dev-bronze-rack"
+      - dataType: "0.dlq"
+        name: "cdc"
+        plan: "dev-bronze-rack"
+      - dataType: "0"
+        name: "raw"
+        plan: "dev-bronze-rack"
+        schemas:
+          value.schema.file: "schemas/v1/schema-dev.asia.all.policy.operational-data-hub.raw.0-value-v1.json"
+          value.format: "JSON"
+      - dataType: "0.EH-AsiaEnt-operationalDataHub-Consume-Produce.dlq"
+        name: "raw"
+        plan: "dev-bronze-rack"
+        schemas:
+          value.schema.file: "schemas/v1/schema-dev.asia.all.policy.operational-data-hub.raw.0-value-v1.json"
+          value.format: "JSON"
+      - dataType: "0"
+        name: "dom"
+        plan: "dev-bronze-rack"
+        schemas:
+          value.schema.file: "schemas/v1/schema-dev.asia.all.policy.operational-data-hub.dom.0-value-v1.json"
+          value.format: "JSON"
+      - dataType: "0.EH-AsiaEnt-operationalDataHub-Consume-Produce.dlq"
+        name: "dom"
+        plan: "dev-bronze-rack"
+        schemas:
+          value.schema.file: "schemas/v1/schema-dev.asia.all.policy.operational-data-hub.dom.0-value-v1.json"
+          value.format: "JSON"
